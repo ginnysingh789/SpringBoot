@@ -1,11 +1,14 @@
 package com.example.SpringBoot.Controllers;
 
 import com.example.SpringBoot.Services.GreetingService;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+
 public class Routes {
     private final GreetingService greetingService;
 
@@ -18,5 +21,13 @@ public class Routes {
         return greetingService.getGreeting(name);
 
 }
+    @Value("${app.welcome.message}")
+    private  String welcomeMessage;
+
+
+    @GetMapping("/check")
+        public String checkEnv() {
+        return welcomeMessage;
+    }
 
 }
