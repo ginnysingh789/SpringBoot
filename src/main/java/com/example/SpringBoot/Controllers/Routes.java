@@ -29,5 +29,15 @@ public class Routes {
         public String checkEnv() {
         return welcomeMessage;
     }
+    @GetMapping("/public")
+    public String publicEndpoint(){
+        return "You are public User ";
+
+    }
+    @GetMapping("/secret")
+    public String secretEndpoint(){
+        System.out.println("Secret endpoint is hited ");
+        return "Secret Endpoint ";
+    }
 
 }
