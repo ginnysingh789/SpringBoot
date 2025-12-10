@@ -1,6 +1,7 @@
 package com.example.SpringBoot.Controllers;
 
 import com.example.SpringBoot.Model.User;
+import jakarta.validation.Valid;
 import org.apache.logging.log4j.message.Message;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ObjectConversion {
     @PostMapping("/")
-    public String input_user(@RequestBody User recieved_data){
+    public String input_user(@Valid @RequestBody User recieved_data){
         System.out.println(recieved_data.getId());
         System.out.println(recieved_data.getName());
         System.out.println(recieved_data.getEmail());

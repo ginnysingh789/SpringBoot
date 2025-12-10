@@ -1,9 +1,18 @@
 package com.example.SpringBoot.Model;
 
-public class User {
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
+import javax.print.attribute.standard.MediaSize;
+
+public class User {
+    @NotBlank(message="Id should not be empty ")
     private  String id;
+    @NotBlank(message = "Name should be empty")
+    @Size(max = 20,message = "Not more than 20 words")
     private String name;
+    @NotBlank(message = "Should not be empty ")
+    @Size(max = 20,message = "Not more than 20 words")
     private String email ;
 
     public User( String id ,String name ,String email){
